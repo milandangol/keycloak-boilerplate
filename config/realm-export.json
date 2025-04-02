@@ -1,0 +1,70 @@
+{
+  "id": "app-realm",
+  "realm": "app-realm",
+  "displayName": "Application Realm",
+  "enabled": true,
+  "sslRequired": "external",
+  "registrationAllowed": true,
+  "loginWithEmailAllowed": true,
+  "duplicateEmailsAllowed": false,
+  "resetPasswordAllowed": true,
+  "editUsernameAllowed": false,
+  "bruteForceProtected": true,
+  "identityProviders": [
+    {
+      "alias": "google",
+      "displayName": "Google",
+      "providerId": "google",
+      "enabled": true,
+      "updateProfileFirstLoginMode": "on",
+      "trustEmail": true,
+      "storeToken": false,
+      "addReadTokenRoleOnCreate": false,
+      "authenticateByDefault": false,
+      "config": {
+        "clientId": "${env.GOOGLE_CLIENT_ID}",
+        "clientSecret": "${env.GOOGLE_CLIENT_SECRET}",
+        "useJwksUrl": "true"
+      }
+    },
+    {
+      "alias": "facebook",
+      "displayName": "Facebook",
+      "providerId": "facebook",
+      "enabled": true,
+      "updateProfileFirstLoginMode": "on",
+      "trustEmail": true,
+      "storeToken": false,
+      "addReadTokenRoleOnCreate": false,
+      "authenticateByDefault": false,
+      "config": {
+        "clientId": "${env.FACEBOOK_CLIENT_ID}",
+        "clientSecret": "${env.FACEBOOK_CLIENT_SECRET}",
+        "defaultScope": "email,public_profile"
+      }
+    }
+  ],
+  "clients": [
+    {
+      "clientId": "app-client",
+      "name": "Application Client",
+      "rootUrl": "${env.APP_URL:http://localhost:3000}",
+      "baseUrl": "/",
+      "surrogateAuthRequired": false,
+      "enabled": true,
+      "alwaysDisplayInConsole": false,
+      "clientAuthenticatorType": "client-secret",
+      "secret": "${env.CLIENT_SECRET:changeme}",
+      "redirectUris": [
+        "${env.APP_URL:http://localhost:3000}/*"
+      ],
+      "webOrigins": [
+        "${env.APP_URL:http://localhost:3000}"
+      ],
+      "protocol": "openid-connect",
+      "attributes": {
+        "pkce.code.challenge.method": "S256"
+      }
+    }
+  ]
+} 

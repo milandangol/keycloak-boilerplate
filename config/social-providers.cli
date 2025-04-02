@@ -1,0 +1,15 @@
+embed-server --server-config=standalone-ha.xml --std-out=echo
+batch
+
+# Google Identity Provider
+/subsystem=keycloak-server/spi=identity-provider/provider=google:add(enabled=true)
+/subsystem=keycloak-server/spi=identity-provider/provider=google:write-attribute(name=properties.client-id, value=${env.GOOGLE_CLIENT_ID:})
+/subsystem=keycloak-server/spi=identity-provider/provider=google:write-attribute(name=properties.client-secret, value=${env.GOOGLE_CLIENT_SECRET:})
+
+# Facebook Identity Provider
+/subsystem=keycloak-server/spi=identity-provider/provider=facebook:add(enabled=true)
+/subsystem=keycloak-server/spi=identity-provider/provider=facebook:write-attribute(name=properties.client-id, value=${env.FACEBOOK_CLIENT_ID:})
+/subsystem=keycloak-server/spi=identity-provider/provider=facebook:write-attribute(name=properties.client-secret, value=${env.FACEBOOK_CLIENT_SECRET:})
+
+run-batch
+quit 
