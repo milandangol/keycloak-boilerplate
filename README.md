@@ -81,6 +81,3 @@ The production setup includes health checks. You can monitor Keycloak's health a
 - **Social Login Problems**: Verify that your client IDs and secrets are correct, and that redirect URIs are properly configured
 - **Theme Not Appearing**: Check that the theme directory structure matches Keycloak's requirements and restart the server
 
-## License
-
-MIT
