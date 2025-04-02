@@ -22,7 +22,7 @@ A comprehensive, ready-to-use Keycloak setup with social login, custom themes, a
 
 3. Start the development environment:
    ```bash
-   docker-compose -f docker-compose.dev.yml up -d
+   docker-compose -f docker-compose.dev.yml up -d -build
    ```
 
 4. Access Keycloak at http://localhost:8080/auth
