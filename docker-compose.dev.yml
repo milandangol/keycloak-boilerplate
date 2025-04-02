@@ -50,9 +50,11 @@ services:
       KC_HTTP_RELATIVE_PATH: ${KC_HTTP_RELATIVE_PATH:-/auth}
       KC_PROXY: edge
       KC_LOG_LEVEL: INFO
-    command: 
-      - start-dev
-      - --import-realm
+      GOOGLE_CLIENT_ID: ${GOOGLE_CLIENT_ID:-}
+      GOOGLE_CLIENT_SECRET: ${GOOGLE_CLIENT_SECRET:-}
+      FACEBOOK_CLIENT_ID: ${FACEBOOK_CLIENT_ID:-}
+      FACEBOOK_CLIENT_SECRET: ${FACEBOOK_CLIENT_SECRET:-}
+    command: ["start-dev", "--import-realm","--spi-theme-welcome-theme=custom"]
     volumes:
       - ./config:/opt/keycloak/data/import
       - ./themes:/opt/keycloak/themes

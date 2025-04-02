@@ -3,8 +3,8 @@ batch
 
 # Google Identity Provider
 /subsystem=keycloak-server/spi=identity-provider/provider=google:add(enabled=true)
-/subsystem=keycloak-server/spi=identity-provider/provider=google:write-attribute(name=properties.client-id, value=${env.GOOGLE_CLIENT_ID:})
-/subsystem=keycloak-server/spi=identity-provider/provider=google:write-attribute(name=properties.client-secret, value=${env.GOOGLE_CLIENT_SECRET:})
+/subsystem=keycloak-server/spi=identity-provider/provider=google:write-attribute(name=properties.client-id, value=${GOOGLE_CLIENT_ID:})
+/subsystem=keycloak-server/spi=identity-provider/provider=google:write-attribute(name=properties.client-secret, value=${GOOGLE_CLIENT_SECRET:})
 
 # Facebook Identity Provider
 /subsystem=keycloak-server/spi=identity-provider/provider=facebook:add(enabled=true)

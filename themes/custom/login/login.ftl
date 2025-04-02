@@ -8,13 +8,15 @@
                 <#if realm.password>
                     <form id="kc-form-login" onsubmit="login.disabled = true; return true;" action="${url.loginAction}" method="post">
                         <div class="form-group">
-                            <label for="username" class="control-label">${msg("username")}</label>
-                            <input tabindex="1" id="username" class="form-control" name="username" value="${(login.username!'')}" type="text" autofocus autocomplete="off" />
+                            <label for="username" class="control-label"><i class="fas fa-user"></i> ${msg("username")}</label>
+                            <input tabindex="1" id="username" class="form-control" name="username" value="${(login.username!'')}" 
+                                type="text" autofocus autocomplete="off" placeholder="Enter your username" />
                         </div>
 
                         <div class="form-group">
-                            <label for="password" class="control-label">${msg("password")}</label>
-                            <input tabindex="2" id="password" class="form-control" name="password" type="password" autocomplete="off" />
+                            <label for="password" class="control-label"><i class="fas fa-lock"></i> ${msg("password")}</label>
+                            <input tabindex="2" id="password" class="form-control" name="password" 
+                                type="password" autocomplete="off" placeholder="Enter your password" />
                         </div>
 
                         <div class="form-group login-options">
@@ -31,7 +33,7 @@
                             </#if>
                             <div class="">
                                 <#if realm.resetPasswordAllowed>
-                                    <span><a tabindex="5" href="${url.loginResetCredentialsUrl}">${msg("doForgotPassword")}</a></span>
+                                    <span><a tabindex="5" href="${url.loginResetCredentialsUrl}"><i class="fas fa-question-circle"></i> ${msg("doForgotPassword")}</a></span>
                                 </#if>
                             </div>
                         </div>
@@ -66,7 +68,7 @@
     <#elseif section = "info" >
         <#if realm.password && realm.registrationAllowed && !registrationDisabled??>
             <div id="kc-registration">
-                <span>${msg("noAccount")} <a tabindex="6" href="${url.registrationUrl}">${msg("doRegister")}</a></span>
+                <span>${msg("noAccount")} <a tabindex="6" href="${url.registrationUrl}"><i class="fas fa-user-plus"></i> ${msg("doRegister")}</a></span>
             </div>
         </#if>
     </#if>
